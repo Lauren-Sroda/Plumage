@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plumage — For the bird. For the people.</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <style>
+    /* Colors */
+    :root {
+      --cream: #F5F1E6;
+      --gold: #E1C141;
+      --crimson: #B7412A;
+      --pine: #3E6A54;
+      --black: #33322E;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Lora', serif;
+      background-color: var(--cream);
+      color: var(--black);
+    }
+
+    header {
+      background-color: var(--gold);
+      padding: 1rem;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      color: var(--black);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .hero {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: var(--cream);
+    }
+
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem;
+      color: var(--pine);
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--crimson);
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      background-color: var(--gold);
+      color: var(--black);
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .product-card h3 {
+      color: var(--pine);
+    }
+
+    .product-card p {
+      margin: 0.5rem 0 1rem;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      border: 1px solid var(--black);
+      border-radius: 6px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    Plumage
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#commission">Commissions</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>For the bird. For the people.</h1>
+    <p>Thoughtful, playful, and caring poultry designs for hobbyists and professionals.</p>
+    <a class="btn" href="#products">Explore Products</a>
+  </section>
+
+  <section class="section" id="products">
+    <h2 style="text-align:center;">Featured Products</h2>
+    <div class="products">
+      <div class="product-card">
+        <h3>Smart Coop Sensor</h3>
+        <p>Monitor your flock and optimize bird welfare with ease.</p>
+        <a class="btn" href="#">Learn More</a>
+      </div>
+      <div class="product-card">
+        <h3>Automated Feeder</h3>
+        <p>Feed your birds on time, every time, stress-free.</p>
+        <a class="btn" href="#">Learn More</a>
+      </div>
+      <div class="product-card">
+        <h3>Custom Nesting Boxes</h3>
+        <p>Made to fit your coop and your flock’s needs.</p>
+        <a class="btn" href="#">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="commission">
+    <h2 style="text-align:center;">Commissions & Custom Design</h2>
+    <p style="text-align:center;">Let’s create something unique for your flock — I’m here for the bird, and for you!</p>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Tell me about your project" rows="5" required></textarea>
+      <button class="btn" type="submit">Send Request</button>
+    </form>
+  </section>
+
+  <section class="section" id="about">
+    <h2 style="text-align:center;">About Plumage</h2>
+    <p style="max-width:600px; margin:auto; text-align:center;">
+      Plumage is a modern, empathetic poultry brand that blends bird welfare with human usability, combining engineering, creativity, and care. Whether you’re a backyard enthusiast or running a commercial operation, I design solutions that are thoughtful, playful, and functional.
+    </p>
+  </section>
+
+</body>
+</html>
