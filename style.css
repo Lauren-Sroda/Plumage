@@ -14,41 +14,72 @@ header {
   text-align: center;
 }
 
-#feather {
-  width: 180px;
-  position: absolute;
-  top: -200px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-10deg);
-  opacity: 0;
-  animation: featherDrop 2s ease-in-out forwards;
+.logo-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
 }
 
-#gear {
-  width: 180px;
-  opacity: 0;
-}
-
-#plumageLogo {
-  width: 180px;
-  opacity: 0;
+#feather, #gear, #plumageLogo {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  width: 200px;
+  opacity: 0;
 }
+
+#gear { z-index: 1; }
+#feather { z-index: 2; transform: rotate(-90deg); }
+#plumageLogo { z-index: 3; }
 
 h1 {
-  margin-top: 20px;
   font-weight: 600;
   font-size: 2.5rem;
-  color: #000;
+  color: #33322E;
   opacity: 0;
-  transform: translateY(10px);
+  display: inline-block;
+  position: relative;
 }
 
-@keyframes featherDrop {
-  0% { top: -200px; opacity: 0; transform: translateX(-50%) rotate(-10deg); }
-  70% { top: 0; opacity: 1; transform: translateX(-50%) rotate(5deg); }
-  100% { top: 0; opacity: 1; transform: translateX(-50%) rotate(0deg); }
+/* Feather swaying Z-path */
+@keyframes featherDrift {
+  0% {
+    transform: translate(-80px, -250px) rotate(-90deg);
+    opacity: 0;
+  }
+  20% {
+    transform: translate(-100px, -150px) rotate(-60deg);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(-60px, -70px) rotate(-30deg);
+  }
+  60% {
+    transform: translate(-90px, -30px) rotate(-10deg);
+  }
+  80% {
+    transform: translate(-70px, 0px) rotate(-3deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+
+/* Logo slide left */
+@keyframes logoSlideLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-80px); }
+}
+
+/* Text reveal */
+@keyframes textSlideOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
