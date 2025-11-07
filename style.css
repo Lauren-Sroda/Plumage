@@ -1,0 +1,70 @@
+/* style.css */
+body {
+  margin: 0;
+  background-color: #E1C141;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Nelius Sans", sans-serif;
+}
+
+header {
+  position: relative;
+  text-align: center;
+}
+
+#feather {
+  width: 180px;
+  position: absolute;
+  top: -200px; /* starts off-screen */
+  left: 50%;
+  transform: translateX(-50%) rotate(-10deg);
+  opacity: 0;
+  animation: featherDrop 2.5s ease-in-out forwards;
+}
+
+#gear {
+  width: 180px;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: gearAppear 1s ease-in-out 2.4s forwards;
+}
+
+#plumageLogo {
+  width: 180px;
+  opacity: 0;
+  animation: logoBlend 1s ease-in-out 3.4s forwards;
+}
+
+h1 {
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 2.5rem;
+  color: #000;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: textReveal 1.5s ease-out 4.5s forwards;
+}
+
+@keyframes featherDrop {
+  0% { top: -200px; opacity: 0; transform: translateX(-50%) rotate(-10deg); }
+  70% { top: 40%; opacity: 1; transform: translateX(-50%) rotate(10deg); }
+  100% { top: 0; transform: translateX(-50%) rotate(0deg); opacity: 1; }
+}
+
+@keyframes gearAppear {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes logoBlend {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes textReveal {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
