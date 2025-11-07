@@ -5,30 +5,31 @@ window.addEventListener("load", () => {
   const headerText = document.querySelector("h1");
   const logoContainer = document.querySelector(".logo-container");
 
-  // Start feather drift
-  feather.style.animation = "featherDrift 3.5s ease-in-out forwards";
+  // 1. Start: Feather drifts down in Z-pattern (3s)
+  feather.style.opacity = "1";
+  feather.style.animation = "featherDrift 3s ease-in-out forwards";
 
-  // Fade in gear during feather fall
+  // 2. Gear fades in during feather fall (at 1s, takes 1s)
   setTimeout(() => {
-    gear.style.transition = "opacity 1.5s ease-in-out";
-    gear.style.opacity = 1;
-  }, 1500);
+    gear.style.transition = "opacity 1s ease-in-out";
+    gear.style.opacity = "1";
+  }, 1000);
 
-  // After feather lands, fade in Plumage logo
+  // 3. Feather lands, then rotates to upright (at 3s, takes 0.6s)
   setTimeout(() => {
-    feather.style.opacity = 0;
-    gear.style.opacity = 0;
-    plumage.style.transition = "opacity 1s ease-in-out";
-    plumage.style.opacity = 1;
+    feather.style.animation = "featherRotate 0.6s ease-out forwards";
+  }, 3000);
+
+  // 4. Switch to combined plumage logo (at 3.8s, takes 0.5s)
+  setTimeout(() => {
+    feather.classList.add("fade-out");
+    gear.classList.add("fade-out");
+    plumage.classList.add("fade-in");
   }, 3800);
 
-  // Slide logo left to reveal text
+  // 5. Logo slides left while text reveals (at 4.5s, takes 1.2s)
   setTimeout(() => {
-    logoContainer.style.animation = "logoSlideLeft 1.5s ease-in-out forwards";
-  }, 4800);
-
-  // Reveal text from behind
-  setTimeout(() => {
-    headerText.style.animation = "textSlideOut 1.5s ease-out forwards";
-  }, 5300);
+    logoContainer.style.animation = "logoSlideLeft 1.2s ease-in-out forwards";
+    headerText.style.animation = "textSlideOut 1.2s ease-out forwards";
+  }, 4500);
 });
