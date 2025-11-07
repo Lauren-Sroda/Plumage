@@ -12,74 +12,119 @@ body {
 header {
   position: relative;
   text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .logo-container {
   position: relative;
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
 }
 
 #feather, #gear, #plumageLogo {
   position: absolute;
   top: 0;
   left: 0;
-  width: 200px;
+  width: 150px;
+  height: 150px;
   opacity: 0;
 }
 
-#gear { z-index: 1; }
-#feather { z-index: 2; transform: rotate(-90deg); }
-#plumageLogo { z-index: 3; }
+#gear { 
+  z-index: 1; 
+}
+
+#feather { 
+  z-index: 2; 
+  transform: translate(-50px, -300px) rotate(-90deg);
+}
+
+#plumageLogo { 
+  z-index: 3; 
+}
 
 h1 {
   font-weight: 600;
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: #33322E;
   opacity: 0;
-  display: inline-block;
+  white-space: nowrap;
   position: relative;
+  left: -150px;
 }
 
-/* Feather swaying Z-path */
 @keyframes featherDrift {
   0% {
-    transform: translate(-80px, -250px) rotate(-90deg);
-    opacity: 0;
-  }
-  20% {
-    transform: translate(-100px, -150px) rotate(-60deg);
+    transform: translate(-50px, -300px) rotate(-90deg);
     opacity: 1;
   }
-  40% {
-    transform: translate(-60px, -70px) rotate(-30deg);
+  25% {
+    transform: translate(30px, -200px) rotate(-70deg);
   }
-  60% {
-    transform: translate(-90px, -30px) rotate(-10deg);
+  50% {
+    transform: translate(-20px, -100px) rotate(-50deg);
   }
-  80% {
-    transform: translate(-70px, 0px) rotate(-3deg);
+  75% {
+    transform: translate(15px, -30px) rotate(-20deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(-90deg);
+  }
+}
+
+@keyframes featherRotate {
+  0% {
+    transform: translate(0px, 0px) rotate(-90deg);
+    opacity: 1;
   }
   100% {
     transform: translate(0px, 0px) rotate(0deg);
+    opacity: 1;
   }
 }
 
-/* Logo slide left */
 @keyframes logoSlideLeft {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-80px); }
+  0% { 
+    transform: translateX(0); 
+  }
+  100% { 
+    transform: translateX(-100px); 
+  }
 }
 
-/* Text reveal */
 @keyframes textSlideOut {
   0% {
     opacity: 0;
-    transform: translateX(-60px);
+    left: -150px;
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
+    left: 0;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
