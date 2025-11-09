@@ -1,20 +1,46 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F5F1E6;
+  font-family: "Nelius Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
   background-color: #E1C141;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  overflow: hidden;
-  font-family: "Nelius Sans", sans-serif;
+  z-index: 1000;
+  transition: height 0.8s ease-in-out, padding 0.8s ease-in-out;
 }
 
-header {
-  position: relative;
-  text-align: center;
+header.shrink {
+  height: 80px;
+  padding: 0 2rem;
+  justify-content: flex-start;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-content {
   display: flex;
   align-items: center;
   gap: 20px;
+  transition: transform 0.8s ease-in-out;
+}
+
+header.shrink .header-content {
+  transform: scale(0.5);
+  transform-origin: left center;
 }
 
 .logo-container {
@@ -39,7 +65,7 @@ header {
 
 #feather { 
   z-index: 2; 
-  transform: translate(-50px, -300px) rotate(-90deg);
+  transform: translate(0px, -400px) rotate(-90deg);
 }
 
 #plumageLogo { 
@@ -50,35 +76,36 @@ h1 {
   font-weight: 600;
   font-size: 3rem;
   color: #33322E;
-  opacity: 0;
   white-space: nowrap;
   position: relative;
-  left: -150px;
+  overflow: hidden;
+  width: 0;
+  opacity: 0;
 }
 
+/* Smooth feather floating with gentle sway */
 @keyframes featherDrift {
   0% {
-    transform: translate(-50px, -300px) rotate(-90deg);
+    transform: translate(0px, -400px) rotate(-90deg);
     opacity: 1;
   }
-  25% {
-    transform: translate(30px, -200px) rotate(-70deg);
+  15% {
+    transform: translate(20px, -320px) rotate(-80deg);
   }
-  50% {
-    transform: translate(-20px, -100px) rotate(-50deg);
+  30% {
+    transform: translate(-15px, -240px) rotate(-70deg);
+  }
+  45% {
+    transform: translate(18px, -160px) rotate(-50deg);
+  }
+  60% {
+    transform: translate(-12px, -90px) rotate(-30deg);
   }
   75% {
-    transform: translate(15px, -30px) rotate(-20deg);
+    transform: translate(10px, -40px) rotate(-15deg);
   }
-  100% {
-    transform: translate(0px, 0px) rotate(-90deg);
-  }
-}
-
-@keyframes featherRotate {
-  0% {
-    transform: translate(0px, 0px) rotate(-90deg);
-    opacity: 1;
+  90% {
+    transform: translate(-5px, -10px) rotate(-5deg);
   }
   100% {
     transform: translate(0px, 0px) rotate(0deg);
@@ -86,26 +113,29 @@ h1 {
   }
 }
 
-@keyframes logoSlideLeft {
+/* Logo moves left to reveal text */
+@keyframes logoShiftLeft {
   0% { 
     transform: translateX(0); 
   }
   100% { 
-    transform: translateX(-100px); 
+    transform: translateX(-120px); 
   }
 }
 
-@keyframes textSlideOut {
+/* Text reveals letter by letter from behind logo */
+@keyframes textReveal {
   0% {
-    opacity: 0;
-    left: -150px;
+    width: 0;
+    opacity: 1;
   }
   100% {
+    width: 280px;
     opacity: 1;
-    left: 0;
   }
 }
 
+/* Fade out animation */
 .fade-out {
   animation: fadeOut 0.5s ease-out forwards;
 }
@@ -116,8 +146,9 @@ h1 {
   }
 }
 
+/* Fade in animation */
 .fade-in {
-  animation: fadeIn 0.8s ease-in forwards;
+  animation: fadeIn 0.6s ease-in forwards;
 }
 
 @keyframes fadeIn {
@@ -127,4 +158,23 @@ h1 {
   to {
     opacity: 1;
   }
+}
+
+/* Main content placeholder */
+main {
+  margin-top: 100vh;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+main h2 {
+  color: #33322E;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+main p {
+  color: #33322E;
+  line-height: 1.6;
+  max-width: 800px;
 }
